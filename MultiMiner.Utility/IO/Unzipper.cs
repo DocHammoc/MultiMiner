@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.IO.Compression;
 
 namespace MultiMiner.Utility.IO
 {
@@ -15,9 +16,10 @@ namespace MultiMiner.Utility.IO
                 UnzipFileToFolderUnix(zipFilePath, destionationFolder);
 #if !__MonoCS__
             else
-                UnzipFileToFolderWindows(zipFilePath, destionationFolder);
+	            UnzipFileToFolderUwp(zipFilePath, destionationFolder);
+			//                UnzipFileToFolderWindows(zipFilePath, destionationFolder);
 #endif
-        }
+		}
 
         private static void UnzipFileToFolderUnix(string zipFilePath, string destinationFolder)
         {
@@ -62,8 +64,31 @@ namespace MultiMiner.Utility.IO
                 CopyDirectoryContents(directory, Path.Combine(targetDir, Path.GetFileName(directory)));
         }
 
+	    private static void UnzipFileToFolderUwp(string zipFilePath, string destinationFolder)
+	    {
+		    var temporaryPath = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
+		    using (var archive = ZipFile.Open(zipFilePath, ZipArchiveMode.Read))
+		    {
+			    archive.ExtractToDirectory(temporaryPath);
+		    }
+		    var directoryInfo = new DirectoryInfo(temporaryPath);
+		    var files = directoryInfo.GetFiles();
+		    var directories = directoryInfo.GetDirectories();
+
+		    if ((files.Length == 0) && (directories.Length == 1))
+		    {
+			    CopyDirectoryContents(directories[0].FullName, destinationFolder);
+		    }
+		    else
+		    {
+			    CopyDirectoryContents(temporaryPath, destinationFolder);
+		    }
+
+		    Directory.Delete(temporaryPath, true);
+	    }
+
 #if !__MonoCS__
-        private static void UnzipFileToFolderWindows(string zipFilePath, string destinationFolder)
+		private static void UnzipFileToFolderWindows(string zipFilePath, string destinationFolder)
         {
             const bool showProgress = false;
             const bool yesToAll = true;
