@@ -41,35 +41,35 @@ namespace MultiMiner.Engine.Helpers
         //Return a hardware identifier
         private static string GetWMIIdentifier(string wmiClass, string wmiProperty, string wmiMustBeTrue)
         {
-            System.Management.ManagementClass mc = new System.Management.ManagementClass(wmiClass);
-            System.Management.ManagementObjectCollection moc = mc.GetInstances();
-            foreach (System.Management.ManagementObject mo in moc)
-            {
-                if (mo[wmiMustBeTrue].ToString() == "True")
-                {
-                    object propVal = mo[wmiProperty];
-                    if (propVal != null)
-                    {
-                        return propVal.ToString();
-                    }
-                }
-            }
+//            System.Management.ManagementClass mc = new System.Management.ManagementClass(wmiClass);
+//            System.Management.ManagementObjectCollection moc = mc.GetInstances();
+//            foreach (System.Management.ManagementObject mo in moc)
+//            {
+//                if (mo[wmiMustBeTrue].ToString() == "True")
+//                {
+//                    object propVal = mo[wmiProperty];
+//                    if (propVal != null)
+//                    {
+//                        return propVal.ToString();
+//                    }
+//                }
+//            }
             return "";
         }
 
         //Return a hardware identifier
         private static string GetWMIIdentifier(string wmiClass, string wmiProperty)
         {
-            System.Management.ManagementClass mc = new System.Management.ManagementClass(wmiClass);
-            System.Management.ManagementObjectCollection moc = mc.GetInstances();
-            foreach (System.Management.ManagementObject mo in moc)
-            {
-                object propVal = mo[wmiProperty];
-                if (propVal != null)
-                {
-                    return propVal.ToString();
-                }
-            }
+//            System.Management.ManagementClass mc = new System.Management.ManagementClass(wmiClass);
+//            System.Management.ManagementObjectCollection moc = mc.GetInstances();
+//            foreach (System.Management.ManagementObject mo in moc)
+//            {
+//                object propVal = mo[wmiProperty];
+//                if (propVal != null)
+//                {
+//                    return propVal.ToString();
+//                }
+//            }
             return "";
         }
 

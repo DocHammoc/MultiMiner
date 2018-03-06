@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MultiMiner.UX</RootNamespace>
     <AssemblyName>MultiMiner.UX</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +31,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -92,10 +95,6 @@
       <Project>{73c7f5aa-1bd3-49d2-90ab-96e3903c05cd}</Project>
       <Name>MultiMiner.Blockchain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MultiMiner.CoinApi\MultiMiner.CoinApi.csproj">
-      <Project>{9e86f77a-68b9-4d72-82d2-855878ba8cb1}</Project>
-      <Name>MultiMiner.CoinApi</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MultiMiner.CoinWarz\MultiMiner.CoinWarz.csproj">
       <Project>{5b2b2592-689a-4de2-815c-259427a3d101}</Project>
       <Name>MultiMiner.CoinWarz</Name>
@@ -105,7 +104,7 @@
       <Name>MultiMiner.Discovery</Name>
     </ProjectReference>
     <ProjectReference Include="..\MultiMiner.Engine\MultiMiner.Engine.csproj">
-      <Project>{845687bb-ec47-46d3-ac9d-6fcfb63de8f5}</Project>
+      <Project>{37a4c862-1193-4ffa-9142-585cf0d969d8}</Project>
       <Name>MultiMiner.Engine</Name>
     </ProjectReference>
     <ProjectReference Include="..\MultiMiner.ExchangeApi\MultiMiner.ExchangeApi.csproj">
@@ -136,25 +135,13 @@
       <Project>{2cf95427-df1d-4061-8580-f143f04a0439}</Project>
       <Name>MultiMiner.Stats</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MultiMiner.Utility\MultiMiner.Utility.csproj">
-      <Project>{99b0f266-eff7-4416-8c36-8356396a11ca}</Project>
-      <Name>MultiMiner.Utility</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MultiMiner.WhatToMine\MultiMiner.WhatToMine.csproj">
       <Project>{6b967bb0-692a-4ad5-99ee-93c054f05792}</Project>
       <Name>MultiMiner.WhatToMine</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MultiMiner.Xgminer.Api\MultiMiner.Xgminer.Api.csproj">
-      <Project>{5b43ad9d-8b67-4aa8-b76d-aa83caf9d29f}</Project>
-      <Name>MultiMiner.Xgminer.Api</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MultiMiner.Xgminer.Discovery\MultiMiner.Xgminer.Discovery.csproj">
       <Project>{ed66caa1-4826-46e9-bb23-c56d0cff5c7a}</Project>
       <Name>MultiMiner.Xgminer.Discovery</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MultiMiner.Xgminer\MultiMiner.Xgminer.csproj">
-      <Project>{0dbef993-1b34-4d80-ab6a-f662604325dc}</Project>
-      <Name>MultiMiner.Xgminer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
